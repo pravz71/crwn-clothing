@@ -15,12 +15,6 @@ import { selectCurrentUser } from './redux/user/user.selectors';
 
 import './App.css';
 
-const SectionsPage = (props) => (
-  <div>
-    <h1>{props.match.params.section.toUpperCase()} PAGE </h1>
-  </div>
-);
-
 class App extends React.Component {
   unsubscribeFromAuth = null
 
@@ -50,8 +44,7 @@ class App extends React.Component {
         <Header />
         <Switch>
           <Route exact path='/' component={HomePage} />
-          <Route exact path='/shop' component={ShopPage} />
-          <Route path='/shop/:section' component={SectionsPage} />
+          <Route path='/shop' component={ShopPage} />
           <Route exact path='/checkout' component={CheckoutPage} />
           <Route
             exact
