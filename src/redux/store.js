@@ -4,7 +4,13 @@ import logger from 'redux-logger';
 
 import rootReducer from './root-reducer.js';
 
-const middlewares = [ logger ];
+const middlewares = [];
+
+if(process.env.NODE_ENV === 'development') {
+	middlewares.push(logger);
+}
+// this env variable is set by create-react-app
+// we are only logging for the dev server 
 
 const store = createStore( rootReducer, applyMiddleware(...middlewares));
 
